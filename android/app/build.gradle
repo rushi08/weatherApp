@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -84,6 +85,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        buildConfigField("String", "API_KEY", "\"9e32b93ea99f4d81851163235250608\"")
+        buildConfigField("String", "BASE_URL", "\"http://api.weatherapi.com/v1\"")
+
     }
     signingConfigs {
         debug {
